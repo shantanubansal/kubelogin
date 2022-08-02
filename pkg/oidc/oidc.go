@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/binary"
 	"fmt"
+	"os"
 
 	"github.com/int128/kubelogin/pkg/jwt"
 )
@@ -29,11 +30,17 @@ func (ts TokenSet) DecodeWithoutVerify() (*jwt.Claims, error) {
 }
 
 func NewState() (string, error) {
-	b, err := random32()
-	if err != nil {
-		return "", fmt.Errorf("could not generate a random: %w", err)
+	stateBytes := []byte{}
+	if os.Getenv("OIDC_STATE") != "" {
+		stateBytes = []byte(os.Getenv("OIDC_STATE"))
+	} else {
+		b, err := random32()
+		if err != nil {
+			return "", fmt.Errorf("could not generate a random: %w", err)
+		}
+		stateBytes = b
 	}
-	return base64URLEncode(b), nil
+	return base64URLEncode(stateBytes), nil
 }
 
 func NewNonce() (string, error) {

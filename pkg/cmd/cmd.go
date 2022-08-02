@@ -26,7 +26,7 @@ type Interface interface {
 var defaultListenAddress = []string{"127.0.0.1:8000", "127.0.0.1:18000"}
 var defaultTokenCacheDir = filepath.Join("~", ".kube", "cache", "oidc-login")
 
-const defaultAuthenticationTimeoutSec = 180
+const defaultAuthenticationTimeoutSec = 60
 
 // Cmd provides interaction with command line interface (CLI).
 type Cmd struct {
