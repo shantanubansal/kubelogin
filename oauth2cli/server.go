@@ -152,6 +152,10 @@ func (h *localServerHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	case r.Method == "GET" && r.URL.Path == "/":
 		h.handleIndex(w, r)
 	default:
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintln(w, fmt.Sprintf("404 page not found - %v", r.URL.Path))
 		http.NotFound(w, r)
 	}
 }
