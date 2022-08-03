@@ -97,7 +97,7 @@ func receiveCodeViaLocalServer(ctx context.Context, c *Config) (string, error) {
 }
 
 func computeRedirectURL(l net.Listener, c *Config) string {
-	hostPort := fmt.Sprintf("%s/%s", c.RedirectURLHostname, c.State)
+	hostPort := fmt.Sprintf("%s", c.RedirectURLHostname)
 	if l.Addr().((*net.TCPAddr)).Port > 1 && doAppendPort(hostPort) {
 		hostPort = fmt.Sprintf("%s:%d", c.RedirectURLHostname, l.Addr().(*net.TCPAddr).Port)
 	}
@@ -163,7 +163,12 @@ func (h *localServerHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (h *localServerHandler) handleIndex(w http.ResponseWriter, r *http.Request) {
 	authCodeURL := h.config.OAuth2Config.AuthCodeURL(h.config.State, h.config.AuthCodeOptions...)
 	h.config.Logf("oauth2cli: sending redirect to %s", authCodeURL)
-	http.Redirect(w, r, authCodeURL, 302)
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	w.Header().Set("X-Content-Type-Options", "nosniff")
+	w.Write([]byte(authCodeURL))
+	w.WriteHeader(http.StatusOK)
+	//http.Redirect(w, r, authCodeURL, 302)
+	//http.Redirect(w, r, authCodeURL, 302)
 }
 
 func (h *localServerHandler) handleCodeResponse(w http.ResponseWriter, r *http.Request) *authorizationResponse {

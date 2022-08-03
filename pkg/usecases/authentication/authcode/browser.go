@@ -3,6 +3,7 @@ package authcode
 import (
 	"context"
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/shantanubansal/kubelogin/pkg/infrastructure/browser"
@@ -72,7 +73,7 @@ func (u *Browser) Do(ctx context.Context, o *BrowserOption, oidcClient client.In
 			if !ok {
 				return nil
 			}
-			u.openURL(ctx, o, url)
+			u.openURL(ctx, o, url, state)
 			return nil
 		case <-ctx.Done():
 			return fmt.Errorf("context cancelled while waiting for the local server: %w", ctx.Err())
@@ -95,7 +96,7 @@ func (u *Browser) Do(ctx context.Context, o *BrowserOption, oidcClient client.In
 	return out, nil
 }
 
-func (u *Browser) openURL(ctx context.Context, o *BrowserOption, url string) {
+func (u *Browser) openURL(ctx context.Context, o *BrowserOption, url string, state string) {
 	if o.SkipOpenBrowser {
 		u.Logger.Printf("Please visit the following URL in your browser: %s", url)
 		return
@@ -106,13 +107,15 @@ func (u *Browser) openURL(ctx context.Context, o *BrowserOption, url string) {
 		if err := u.Browser.OpenCommand(ctx, url, o.BrowserCommand); err != nil {
 			u.Logger.Printf(`error: could not open the browser: %s
 
-Please visit the following URL in your browser manually: %s`, err, url)
+Please visit the following URL in your browser manually: %s`, err, fmt.Sprintf("%v/%v",
+				strings.Replace(url, "callback", "login", -1), state))
 		}
 		return
 	}
 	if err := u.Browser.Open(url); err != nil {
 		u.Logger.Printf(`error: could not open the browser: %s
 
-Please visit the following URL in your browser manually: %s`, err, url)
+Please visit the following URL in your browser manually: %s`, err, fmt.Sprintf("%v/%v",
+			strings.Replace(url, "callback", "login", -1), state))
 	}
 }
