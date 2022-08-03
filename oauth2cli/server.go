@@ -4,8 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/shantanubansal/kubelogin/shellyconnect"
-
 	"net"
 	"net/http"
 	"strings"
@@ -22,7 +20,8 @@ func receiveCodeViaLocalServer(ctx context.Context, c *Config) (string, error) {
 		return "", fmt.Errorf("could not start a local server: %w", err)
 	}
 	defer l.Close()
-	shellyconnect.ShellySavePort(c.State, l.Addr().(*net.TCPAddr).Port)
+	c.Logf("lets check the port", l.Addr().(*net.TCPAddr).Port)
+	ShellySavePort(c.State, l.Addr().(*net.TCPAddr).Port, c)
 	c.OAuth2Config.RedirectURL = computeRedirectURL(l, c)
 
 	respCh := make(chan *authorizationResponse)
