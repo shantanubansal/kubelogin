@@ -31,16 +31,15 @@ func (ts TokenSet) DecodeWithoutVerify() (*jwt.Claims, error) {
 
 func NewState() (string, error) {
 	stateBytes := []byte{}
-	if os.Getenv("OIDC_STATE") != "" {
-		stateBytes = []byte(os.Getenv("OIDC_STATE"))
-	} else {
+	if os.Getenv("OIDC_STATE") == "" {
 		b, err := random32()
 		if err != nil {
 			return "", fmt.Errorf("could not generate a random: %w", err)
 		}
 		stateBytes = b
+		return base64URLEncode(stateBytes), nil
 	}
-	return base64URLEncode(stateBytes), nil
+	return os.Getenv("OIDC_STATE"), nil
 }
 
 func NewNonce() (string, error) {
