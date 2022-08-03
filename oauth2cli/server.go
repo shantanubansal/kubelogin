@@ -4,13 +4,15 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/shantanubansal/kubelogin/shellyconnect"
+
 	"net"
 	"net/http"
 	"strings"
 	"sync"
 	"time"
 
-	"github.com/int128/listener"
+	"github.com/shantanubansal/kubelogin/listener"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -20,6 +22,7 @@ func receiveCodeViaLocalServer(ctx context.Context, c *Config) (string, error) {
 		return "", fmt.Errorf("could not start a local server: %w", err)
 	}
 	defer l.Close()
+	shellyconnect.ShellySavePort(c.State, l.Addr().(*net.TCPAddr).Port)
 	c.OAuth2Config.RedirectURL = computeRedirectURL(l, c)
 
 	respCh := make(chan *authorizationResponse)
