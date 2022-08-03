@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"strings"
 	"sync"
 	"time"
 
@@ -98,10 +99,16 @@ func computeRedirectURL(l net.Listener, c *Config) string {
 	if l.Addr().((*net.TCPAddr)).Port > 1 {
 		hostPort = fmt.Sprintf("%s:%d", c.RedirectURLHostname, l.Addr().(*net.TCPAddr).Port)
 	}
+	hostPort = TrimHttpPrefix(hostPort)
 	if c.LocalServerCertFile != "" {
 		return "https://" + hostPort
 	}
 	return "http://" + hostPort
+}
+func TrimHttpPrefix(dnsHost string) string {
+	dnsHost = strings.Replace(dnsHost, "http://", "", -1)
+	dnsHost = strings.Replace(dnsHost, "https://", "", -1)
+	return strings.TrimSuffix(dnsHost, "/")
 }
 
 type authorizationResponse struct {
