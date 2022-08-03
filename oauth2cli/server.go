@@ -94,7 +94,10 @@ func receiveCodeViaLocalServer(ctx context.Context, c *Config) (string, error) {
 }
 
 func computeRedirectURL(l net.Listener, c *Config) string {
-	hostPort := fmt.Sprintf("%s:%d", c.RedirectURLHostname, l.Addr().(*net.TCPAddr).Port)
+	hostPort := fmt.Sprintf("%s", c.RedirectURLHostname)
+	if l.Addr().((*net.TCPAddr)).Port > 1 {
+		hostPort = fmt.Sprintf("%s:%d", c.RedirectURLHostname, l.Addr().(*net.TCPAddr).Port)
+	}
 	if c.LocalServerCertFile != "" {
 		return "https://" + hostPort
 	}
