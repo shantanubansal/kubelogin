@@ -7,7 +7,7 @@ import (
 )
 
 func ShellySavePort(state string, port int, c *Config) error {
-	url := fmt.Sprintf("http://localhost:8080/v1/shelly/oidc/save/port?state=%v&port=%v", state, port)
+	url := fmt.Sprintf("http://localhost:8080/v1/shelly/oidc/port/save?state=%v&port=%v", state, port)
 	c.Logf(fmt.Sprintf("url connecting %v", url))
 	resp, err := http.Get(url)
 	if err != nil {
