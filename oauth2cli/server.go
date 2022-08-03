@@ -96,7 +96,7 @@ func receiveCodeViaLocalServer(ctx context.Context, c *Config) (string, error) {
 
 func computeRedirectURL(l net.Listener, c *Config) string {
 	hostPort := fmt.Sprintf("%s", c.RedirectURLHostname)
-	if l.Addr().((*net.TCPAddr)).Port > 1 {
+	if l.Addr().((*net.TCPAddr)).Port > 1 && doAppendPort(hostPort) {
 		hostPort = fmt.Sprintf("%s:%d", c.RedirectURLHostname, l.Addr().(*net.TCPAddr).Port)
 	}
 	hostPort = TrimHttpPrefix(hostPort)
@@ -109,6 +109,20 @@ func TrimHttpPrefix(dnsHost string) string {
 	dnsHost = strings.Replace(dnsHost, "http://", "", -1)
 	dnsHost = strings.Replace(dnsHost, "https://", "", -1)
 	return strings.TrimSuffix(dnsHost, "/")
+}
+func doAppendPort(dnsHost string) bool {
+	if strings.Contains(dnsHost, "http://") {
+		return false
+	}
+	if strings.Contains(dnsHost, "http:") {
+		return false
+	}
+	dnsHost = TrimHttpPrefix(dnsHost)
+	if len(strings.Split(dnsHost, ":")) > 1 {
+		return false
+	}
+
+	return true
 }
 
 type authorizationResponse struct {
