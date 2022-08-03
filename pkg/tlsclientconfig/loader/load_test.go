@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
 )
 
 func TestLoader_Load(t *testing.T) {

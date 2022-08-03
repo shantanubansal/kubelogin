@@ -5,13 +5,13 @@ import (
 	"fmt"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/infrastructure/clock"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/oidc/client"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/authcode"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/ropc"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/clock"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/oidc/client"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/authcode"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/ropc"
 )
 
 // Set provides the use-case of Authentication.

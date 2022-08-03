@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/int128/kubelogin/pkg/infrastructure/reader"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/oidc/client"
-	"github.com/int128/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/reader"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/oidc/client"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
 	"github.com/stretchr/testify/mock"
 )
 

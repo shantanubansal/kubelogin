@@ -127,7 +127,7 @@ Variable                | Value
 You do not need to set `YOUR_CLIENT_SECRET`.
 
 If you need `groups` claim for access control,
-see [jetstack/okta-kubectl-auth](https://github.com/jetstack/okta-kubectl-auth/blob/master/docs/okta-setup.md) and [#250](https://github.com/int128/kubelogin/issues/250).
+see [jetstack/okta-kubectl-auth](https://github.com/jetstack/okta-kubectl-auth/blob/master/docs/okta-setup.md) and [#250](https://github.com/shantanubansal/kubelogin/issues/250).
 
 ### Ping Identity
 

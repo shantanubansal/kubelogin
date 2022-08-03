@@ -9,7 +9,7 @@ import (
 	"syscall"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/infrastructure/stdio"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/stdio"
 	"golang.org/x/term"
 )
 

@@ -2,7 +2,7 @@ package mutex
 
 import (
 	"fmt"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
 	"golang.org/x/net/context"
 	"math/rand"
 	"sync"

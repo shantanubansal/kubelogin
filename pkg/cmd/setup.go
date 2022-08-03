@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/int128/kubelogin/pkg/usecases/setup"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/setup"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )

@@ -6,8 +6,8 @@ import (
 	"fmt"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/credentialplugin"
-	"github.com/int128/kubelogin/pkg/infrastructure/stdio"
+	"github.com/shantanubansal/kubelogin/pkg/credentialplugin"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/stdio"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientauthenticationv1beta1 "k8s.io/client-go/pkg/apis/clientauthentication/v1beta1"
 )

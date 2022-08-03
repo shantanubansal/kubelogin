@@ -5,11 +5,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/int128/kubelogin/pkg/oidc"
-	testingJWT "github.com/int128/kubelogin/pkg/testing/jwt"
-	"github.com/int128/kubelogin/pkg/testing/logger"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	testingJWT "github.com/shantanubansal/kubelogin/pkg/testing/jwt"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
 )
 
 func TestSetup_DoStage2(t *testing.T) {

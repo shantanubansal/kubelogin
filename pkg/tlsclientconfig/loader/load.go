@@ -10,7 +10,7 @@ import (
 	"io/ioutil"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
 )
 
 // Set provides an implementation and interface.

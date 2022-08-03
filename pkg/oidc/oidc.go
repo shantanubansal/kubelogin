@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/int128/kubelogin/pkg/jwt"
+	"github.com/shantanubansal/kubelogin/pkg/jwt"
 )
 
 // Provider represents an OIDC provider.

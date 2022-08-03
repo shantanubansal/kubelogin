@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/int128/kubelogin/integration_test/keypair"
-	"github.com/int128/kubelogin/integration_test/oidcserver/handler"
-	"github.com/int128/kubelogin/integration_test/oidcserver/http"
-	"github.com/int128/kubelogin/pkg/testing/jwt"
+	"github.com/shantanubansal/kubelogin/integration_test/keypair"
+	"github.com/shantanubansal/kubelogin/integration_test/oidcserver/handler"
+	"github.com/shantanubansal/kubelogin/integration_test/oidcserver/http"
+	"github.com/shantanubansal/kubelogin/pkg/testing/jwt"
 )
 
 type Server interface {

@@ -5,13 +5,13 @@ import (
 	"fmt"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
-	"github.com/int128/kubelogin/pkg/kubeconfig"
-	"github.com/int128/kubelogin/pkg/kubeconfig/loader"
-	"github.com/int128/kubelogin/pkg/kubeconfig/writer"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig/loader"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig/writer"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
 )
 
 // Set provides the use-case.
@@ -39,7 +39,7 @@ To show the setup instruction:
 
 	kubectl oidc-login setup
 
-See https://github.com/int128/kubelogin for more.
+See https://github.com/shantanubansal/kubelogin for more.
 `
 
 // Standalone provides the use case of explicit login.

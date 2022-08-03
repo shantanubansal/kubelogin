@@ -3,7 +3,7 @@
 package writer
 
 import (
-	credentialplugin "github.com/int128/kubelogin/pkg/credentialplugin"
+	credentialplugin "github.com/shantanubansal/kubelogin/pkg/credentialplugin"
 	mock "github.com/stretchr/testify/mock"
 )
 

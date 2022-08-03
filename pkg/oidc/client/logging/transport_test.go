@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/int128/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
 )
 
 type mockTransport struct {

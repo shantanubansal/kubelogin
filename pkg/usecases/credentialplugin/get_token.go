@@ -10,16 +10,16 @@ import (
 	"strings"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/credentialplugin"
-	"github.com/int128/kubelogin/pkg/credentialplugin/writer"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
-	"github.com/int128/kubelogin/pkg/infrastructure/mutex"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/tokencache"
-	"github.com/int128/kubelogin/pkg/tokencache/repository"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/authcode"
+	"github.com/shantanubansal/kubelogin/pkg/credentialplugin"
+	"github.com/shantanubansal/kubelogin/pkg/credentialplugin/writer"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/mutex"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/tokencache"
+	"github.com/shantanubansal/kubelogin/pkg/tokencache/repository"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/authcode"
 )
 
 var Set = wire.NewSet(
@@ -51,7 +51,7 @@ func (u *GetToken) Do(ctx context.Context, in Input) error {
 	u.Logger.V(1).Infof("WARNING: log may contain your secrets such as token or password")
 
 	// Prevent multiple concurrent port binding using a file mutex.
-	// See https://github.com/int128/kubelogin/issues/389
+	// See https://github.com/shantanubansal/kubelogin/issues/389
 	bindPorts := extractBindAddressPorts(in.GrantOptionSet.AuthCodeBrowserOption)
 	if bindPorts != nil {
 		key := fmt.Sprintf("get-token-%s", strings.Join(bindPorts, "-"))

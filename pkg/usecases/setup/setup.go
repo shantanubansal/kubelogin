@@ -5,8 +5,8 @@ import (
 	"context"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
 )
 
 var Set = wire.NewSet(

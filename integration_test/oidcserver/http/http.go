@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/int128/kubelogin/integration_test/keypair"
+	"github.com/shantanubansal/kubelogin/integration_test/keypair"
 )
 
 func Start(t *testing.T, h http.Handler, k keypair.KeyPair) string {

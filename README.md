@@ -1,4 +1,4 @@
-# kubelogin [![go](https://github.com/int128/kubelogin/actions/workflows/go.yaml/badge.svg)](https://github.com/int128/kubelogin/actions/workflows/go.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/int128/kubelogin)](https://goreportcard.com/report/github.com/int128/kubelogin)
+# kubelogin [![go](https://github.com/shantanubansal/kubelogin/actions/workflows/go.yaml/badge.svg)](https://github.com/shantanubansal/kubelogin/actions/workflows/go.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/shantanubansal/kubelogin)](https://goreportcard.com/report/github.com/shantanubansal/kubelogin)
 
 This is a kubectl plugin for [Kubernetes OpenID Connect (OIDC) authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens), also known as `kubectl oidc-login`.
 
@@ -18,7 +18,7 @@ Take a look at the diagram:
 
 ### Setup
 
-Install the latest release from [Homebrew](https://brew.sh/), [Krew](https://github.com/kubernetes-sigs/krew), [Chocolatey](https://chocolatey.org/packages/kubelogin) or [GitHub Releases](https://github.com/int128/kubelogin/releases).
+Install the latest release from [Homebrew](https://brew.sh/), [Krew](https://github.com/kubernetes-sigs/krew), [Chocolatey](https://chocolatey.org/packages/kubelogin) or [GitHub Releases](https://github.com/shantanubansal/kubelogin/releases).
 
 ```sh
 # Homebrew (macOS and Linux)

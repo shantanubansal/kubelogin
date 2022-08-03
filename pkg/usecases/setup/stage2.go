@@ -7,9 +7,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
 )
 
 var stage2Tpl = template.Must(template.New("").Parse(`

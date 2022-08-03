@@ -3,7 +3,7 @@
 package writer
 
 import (
-	kubeconfig "github.com/int128/kubelogin/pkg/kubeconfig"
+	kubeconfig "github.com/shantanubansal/kubelogin/pkg/kubeconfig"
 	mock "github.com/stretchr/testify/mock"
 )
 

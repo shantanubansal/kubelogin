@@ -7,11 +7,11 @@ import (
 	"time"
 
 	gooidc "github.com/coreos/go-oidc/v3/oidc"
-	"github.com/int128/kubelogin/pkg/infrastructure/clock"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/pkce"
-	"github.com/int128/oauth2cli"
+	"github.com/shantanubansal/kubelogin/oauth2cli"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/clock"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/pkce"
 	"golang.org/x/oauth2"
 )
 

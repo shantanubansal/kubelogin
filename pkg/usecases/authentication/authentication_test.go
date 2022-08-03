@@ -7,14 +7,14 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/oidc/client"
-	"github.com/int128/kubelogin/pkg/testing/clock"
-	testingJWT "github.com/int128/kubelogin/pkg/testing/jwt"
-	testingLogger "github.com/int128/kubelogin/pkg/testing/logger"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/authcode"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/ropc"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/oidc/client"
+	"github.com/shantanubansal/kubelogin/pkg/testing/clock"
+	testingJWT "github.com/shantanubansal/kubelogin/pkg/testing/jwt"
+	testingLogger "github.com/shantanubansal/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/authcode"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/ropc"
 	"github.com/stretchr/testify/mock"
 )
 

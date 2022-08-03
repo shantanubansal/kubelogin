@@ -6,14 +6,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/int128/kubelogin/integration_test/httpdriver"
-	"github.com/int128/kubelogin/integration_test/keypair"
-	"github.com/int128/kubelogin/integration_test/kubeconfig"
-	"github.com/int128/kubelogin/integration_test/oidcserver"
-	"github.com/int128/kubelogin/pkg/di"
-	"github.com/int128/kubelogin/pkg/infrastructure/browser"
-	"github.com/int128/kubelogin/pkg/testing/clock"
-	"github.com/int128/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/integration_test/httpdriver"
+	"github.com/shantanubansal/kubelogin/integration_test/keypair"
+	"github.com/shantanubansal/kubelogin/integration_test/kubeconfig"
+	"github.com/shantanubansal/kubelogin/integration_test/oidcserver"
+	"github.com/shantanubansal/kubelogin/pkg/di"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/browser"
+	"github.com/shantanubansal/kubelogin/pkg/testing/clock"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
 )
 
 // Run the integration tests of the Login use-case.

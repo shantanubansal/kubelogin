@@ -1,7 +1,7 @@
 package setup
 
 const stage1 = `This setup shows the instruction of Kubernetes OpenID Connect authentication.
-See also https://github.com/int128/kubelogin.
+See also https://github.com/shantanubansal/kubelogin.
 
 ## 1. Set up the OpenID Connect Provider
 

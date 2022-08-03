@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/authcode"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/ropc"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/authcode"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/ropc"
 	"github.com/spf13/pflag"
 )
 

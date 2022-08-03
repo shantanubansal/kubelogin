@@ -6,7 +6,7 @@ import (
 	"runtime"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
 	"github.com/spf13/cobra"
 )
 

@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/int128/kubelogin/pkg/kubeconfig"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig"
 	"k8s.io/client-go/tools/clientcmd/api"
 )
 

@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/tokencache"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/tokencache"
 )
 
 // Set provides an implementation and interface for Kubeconfig.

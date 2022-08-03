@@ -8,7 +8,7 @@ import (
 
 	"github.com/alexflint/go-filemutex"
 	"github.com/google/wire"
-	"github.com/int128/kubelogin/pkg/infrastructure/logger"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/logger"
 )
 
 var Set = wire.NewSet(

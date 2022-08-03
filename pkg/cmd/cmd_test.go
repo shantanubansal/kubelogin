@@ -7,13 +7,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/int128/kubelogin/pkg/oidc"
-	"github.com/int128/kubelogin/pkg/testing/logger"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/authcode"
-	"github.com/int128/kubelogin/pkg/usecases/credentialplugin"
-	"github.com/int128/kubelogin/pkg/usecases/standalone"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/authcode"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/credentialplugin"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/standalone"
 )
 
 func TestCmd_Run(t *testing.T) {

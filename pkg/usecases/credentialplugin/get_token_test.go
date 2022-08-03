@@ -6,18 +6,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/int128/kubelogin/pkg/credentialplugin"
-	"github.com/int128/kubelogin/pkg/credentialplugin/writer"
-	"github.com/int128/kubelogin/pkg/infrastructure/mutex"
-	"github.com/int128/kubelogin/pkg/tokencache/repository"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/authcode"
+	"github.com/shantanubansal/kubelogin/pkg/credentialplugin"
+	"github.com/shantanubansal/kubelogin/pkg/credentialplugin/writer"
+	"github.com/shantanubansal/kubelogin/pkg/infrastructure/mutex"
+	"github.com/shantanubansal/kubelogin/pkg/tokencache/repository"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/authcode"
 
-	"github.com/int128/kubelogin/pkg/oidc"
-	testingJWT "github.com/int128/kubelogin/pkg/testing/jwt"
-	"github.com/int128/kubelogin/pkg/testing/logger"
-	"github.com/int128/kubelogin/pkg/tokencache"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
-	"github.com/int128/kubelogin/pkg/usecases/authentication/ropc"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	testingJWT "github.com/shantanubansal/kubelogin/pkg/testing/jwt"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/tokencache"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication/ropc"
 )
 
 func TestGetToken_Do(t *testing.T) {

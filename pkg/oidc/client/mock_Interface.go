@@ -5,7 +5,7 @@ package client
 import (
 	context "context"
 
-	oidc "github.com/int128/kubelogin/pkg/oidc"
+	oidc "github.com/shantanubansal/kubelogin/pkg/oidc"
 	mock "github.com/stretchr/testify/mock"
 )
 

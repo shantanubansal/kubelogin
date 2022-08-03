@@ -6,14 +6,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/int128/kubelogin/pkg/kubeconfig"
-	"github.com/int128/kubelogin/pkg/kubeconfig/loader"
-	"github.com/int128/kubelogin/pkg/kubeconfig/writer"
-	"github.com/int128/kubelogin/pkg/oidc"
-	testingJWT "github.com/int128/kubelogin/pkg/testing/jwt"
-	"github.com/int128/kubelogin/pkg/testing/logger"
-	"github.com/int128/kubelogin/pkg/tlsclientconfig"
-	"github.com/int128/kubelogin/pkg/usecases/authentication"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig/loader"
+	"github.com/shantanubansal/kubelogin/pkg/kubeconfig/writer"
+	"github.com/shantanubansal/kubelogin/pkg/oidc"
+	testingJWT "github.com/shantanubansal/kubelogin/pkg/testing/jwt"
+	"github.com/shantanubansal/kubelogin/pkg/testing/logger"
+	"github.com/shantanubansal/kubelogin/pkg/tlsclientconfig"
+	"github.com/shantanubansal/kubelogin/pkg/usecases/authentication"
 )
 
 func TestStandalone_Do(t *testing.T) {
