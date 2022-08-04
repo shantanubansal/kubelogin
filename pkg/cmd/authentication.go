@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"strings"
 	"time"
 
@@ -49,7 +50,12 @@ var allGrantType = strings.Join([]string{
 	"password",
 }, "|")
 
+var defaultRedirectHostName = "localhost"
+
 func (o *authenticationOptions) addFlags(f *pflag.FlagSet) {
+	if os.Getenv("OIDC_CALLBACK_URL") != "" {
+		defaultRedirectHostName = os.Getenv("OIDC_CALLBACK_URL")
+	}
 	f.StringVar(&o.GrantType, "grant-type", "auto", fmt.Sprintf("Authorization grant type to use. One of (%s)", allGrantType))
 	f.StringSliceVar(&o.ListenAddress, "listen-address", defaultListenAddress, "[authcode] Address to bind to the local server. If multiple addresses are set, it will try binding in order")
 	//TODO: remove the deprecated flag
@@ -63,7 +69,7 @@ func (o *authenticationOptions) addFlags(f *pflag.FlagSet) {
 	f.StringVar(&o.LocalServerCertFile, "local-server-cert", "", "[authcode] Certificate path for the local server")
 	f.StringVar(&o.LocalServerKeyFile, "local-server-key", "", "[authcode] Certificate key path for the local server")
 	f.StringVar(&o.OpenURLAfterAuthentication, "open-url-after-authentication", "", "[authcode] If set, open the URL in the browser after authentication")
-	f.StringVar(&o.RedirectURLHostname, "oidc-redirect-url-hostname", "localhost", "[authcode] Hostname of the redirect URL")
+	f.StringVar(&o.RedirectURLHostname, "oidc-redirect-url-hostname", defaultRedirectHostName, "[authcode] Hostname of the redirect URL")
 	f.StringToStringVar(&o.AuthRequestExtraParams, "oidc-auth-request-extra-params", nil, "[authcode, authcode-keyboard] Extra query parameters to send with an authentication request")
 	f.StringVar(&o.Username, "username", "", "[password] Username for resource owner password credentials grant")
 	f.StringVar(&o.Password, "password", "", "[password] Password for resource owner password credentials grant")
