@@ -23,7 +23,7 @@ type Interface interface {
 	Run(ctx context.Context, args []string, version string) int
 }
 
-var defaultListenAddress = []string{"0.0.0.0:0,127.0.0.1:8000", "127.0.0.1:18000"}
+var defaultListenAddress = []string{"0.0.0.0:0"}
 var defaultTokenCacheDir = filepath.Join("~", ".kube", "cache", "oidc-login")
 
 const defaultAuthenticationTimeoutSec = 60

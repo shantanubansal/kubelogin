@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/shantanubansal/kubelogin/oauth2cli/oauth2params"
 	"golang.org/x/oauth2"
@@ -108,7 +109,9 @@ func (c *Config) validateAndSetDefaults() error {
 		return fmt.Errorf("both LocalServerCertFile and LocalServerKeyFile must be set")
 	}
 	if c.RedirectURLHostname == "" {
-		c.RedirectURLHostname = "localhost"
+		if os.Getenv("OIDC_CALLBACK_URL") != "" {
+			c.RedirectURLHostname = os.Getenv("OIDC_CALLBACK_URL")
+		}
 	}
 	if c.State == "" {
 		s, err := oauth2params.NewState()

@@ -93,7 +93,6 @@ func (c *client) GetTokenByAuthCode(ctx context.Context, in GetTokenByAuthCodeIn
 // GetAuthCodeURL returns the URL of authentication request for the authorization code flow.
 func (c *client) GetAuthCodeURL(in AuthCodeURLInput) string {
 	cfg := c.oauth2Config
-	cfg.RedirectURL = "http://34.73.79.50/oidc/callback"
 	opts := authorizationRequestOptions(in.Nonce, in.PKCEParams, in.AuthRequestExtraParams)
 	return cfg.AuthCodeURL(in.State, opts...)
 }

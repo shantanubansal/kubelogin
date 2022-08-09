@@ -98,6 +98,10 @@ func receiveCodeViaLocalServer(ctx context.Context, c *Config) (string, error) {
 
 func computeRedirectURL(l net.Listener, c *Config) string {
 	hostPort := fmt.Sprintf("%s", c.RedirectURLHostname)
+	c.Logf("Appending Port")
+	c.Logf("Appending Port %v", l.Addr().((*net.TCPAddr)).Port)
+	c.Logf("Do APpend Port %v", doAppendPort(hostPort))
+	c.Logf("Host %v", hostPort)
 	if l.Addr().((*net.TCPAddr)).Port > 1 && doAppendPort(hostPort) {
 		hostPort = fmt.Sprintf("%s:%d", c.RedirectURLHostname, l.Addr().(*net.TCPAddr).Port)
 	}
@@ -116,7 +120,7 @@ func doAppendPort(dnsHost string) bool {
 	if strings.Contains(dnsHost, "http://") {
 		return false
 	}
-	if strings.Contains(dnsHost, "http:") {
+	if strings.Contains(dnsHost, "https://") {
 		return false
 	}
 	dnsHost = TrimHttpPrefix(dnsHost)
