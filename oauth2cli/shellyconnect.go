@@ -4,10 +4,16 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 )
 
 func ShellySavePort(state string, port int, c *Config) error {
-	url := fmt.Sprintf("http://localhost:8080/v1/shelly/oidc/port/save?state=%v&port=%v", state, port)
+	userUid := ""
+	if os.Getenv("OIDC_USER_UID") != "" {
+		userUid = os.Getenv("OIDC_USER_UID")
+	}
+	url := fmt.Sprintf("http://localhost:8080/v1/shelly/oidc/port/save?state=%v&port=%v&userUid=%v",
+		state, port, userUid)
 	c.Logf(fmt.Sprintf("url connecting %v", url))
 	resp, err := http.Get(url)
 	if err != nil {
