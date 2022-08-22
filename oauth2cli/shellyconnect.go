@@ -39,9 +39,9 @@ func ShellySavePort(state string, port int, c *Config) error {
 		return fmt.Errorf("%v: %v", resp.StatusCode, errorMsg)
 	}
 	if resp == nil {
-		c.Logf("Got Response nil")
+		c.Logf("got nil response from the shelly.")
 	} else {
-		c.Logf("Got Response %s from shelly connect", resp.StatusCode)
+		c.Logf("got '%s' response from shelly connect", resp.StatusCode)
 	}
 	return nil
 }
