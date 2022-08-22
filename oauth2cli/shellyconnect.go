@@ -1,6 +1,7 @@
 package oauth2cli
 
 import (
+	"crypto/tls"
 	"fmt"
 	"io"
 	"net/http"
@@ -16,9 +17,11 @@ func ShellySavePort(state string, port int, c *Config) error {
 	if shellyUrl == "" {
 		shellyUrl = "http://localhost:8080/v1/shelly"
 	}
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	url := fmt.Sprintf("%s/oidc/port/save?state=%v&port=%v&userUid=%v",
 		shellyUrl, state, port, userUid)
 	c.Logf(fmt.Sprintf("url connecting %v", url))
+
 	resp, err := http.Get(url)
 	if err != nil {
 		c.Logf("Got Errored %v", err.Error())
