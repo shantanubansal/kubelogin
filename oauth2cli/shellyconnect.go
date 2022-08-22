@@ -21,6 +21,7 @@ func ShellySavePort(state string, port int, c *Config) error {
 	c.Logf(fmt.Sprintf("url connecting %v", url))
 	resp, err := http.Get(url)
 	if err != nil {
+		c.Logf("Got Errored %v", err.Error())
 		return err
 	}
 	if resp.StatusCode != 204 {
@@ -33,6 +34,11 @@ func ShellySavePort(state string, port int, c *Config) error {
 		}
 
 		return fmt.Errorf("%v: %v", resp.StatusCode, errorMsg)
+	}
+	if resp == nil {
+		c.Logf("Got Response nil")
+	} else {
+		c.Logf("Got Response %s from shelly connect", resp.StatusCode)
 	}
 	return nil
 }
