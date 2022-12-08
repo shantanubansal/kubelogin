@@ -17,6 +17,9 @@ func ShellySavePort(state string, port int, c *Config) error {
 	if shellyUrl == "" {
 		shellyUrl = "http://localhost:8080/v1/shelly"
 	}
+	return requestShelly(c, state, port, shellyUrl, userUid)
+}
+func httpRequest(c *Config, state string, port int, shellyUrl string, userUid string) (*http.Response, error) {
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	url := fmt.Sprintf("%s/oidc/port/save?state=%v&port=%v&userUid=%v",
 		shellyUrl, state, port, userUid)
@@ -25,18 +28,22 @@ func ShellySavePort(state string, port int, c *Config) error {
 	resp, err := http.Get(url)
 	if err != nil {
 		c.Logf("Got Errored %v", err.Error())
+		return nil, err
+	}
+	return resp, nil
+}
+
+func requestShelly(c *Config, state string, port int, shellyUrl string, userUid string) error {
+	resp, err := httpRequest(c, state, port, shellyUrl, userUid)
+	if err != nil {
 		return err
 	}
-	if resp.StatusCode != 204 {
-		errorMsg := fmt.Sprintf("unable to save the port for %v and state %v", port, state)
-		if resp.Body != nil {
-			read, err := io.ReadAll(resp.Body)
-			if err == nil {
-				errorMsg = string(read)
-			}
-		}
+	return verifyResponse(c, state, port, resp)
+}
 
-		return fmt.Errorf("%v: %v", resp.StatusCode, errorMsg)
+func verifyResponse(c *Config, state string, port int, resp *http.Response) error {
+	if resp.StatusCode != 204 {
+		return fmt.Errorf("%v: %v", resp.StatusCode, readErrorMsg(port, state, resp))
 	}
 	if resp == nil {
 		c.Logf("got nil response from the shelly.")
@@ -44,4 +51,15 @@ func ShellySavePort(state string, port int, c *Config) error {
 		c.Logf("got '%s' response from shelly connect", resp.StatusCode)
 	}
 	return nil
+}
+
+func readErrorMsg(port int, state string, resp *http.Response) string {
+	errorMsg := fmt.Sprintf("unable to save the port for %v and state %v", port, state)
+	if resp.Body != nil {
+		read, err := io.ReadAll(resp.Body)
+		if err == nil {
+			errorMsg = string(read)
+		}
+	}
+	return errorMsg
 }
